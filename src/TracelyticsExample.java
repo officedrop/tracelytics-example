@@ -36,18 +36,21 @@ public class TracelyticsExample {
 		
 		System.out.printf("Starting trace with id %s%n", Trace.getCurrentXTraceID());
 		
+		System.out.printf("Starting event_1 trace with id %s%n", Trace.getCurrentXTraceID());
 		TraceEvent entryEvent1 = Trace.createEntryEvent("event_1");
 		entryEvent1.report();
 
 		TraceEvent exitEvent1 = Trace.createExitEvent("event_1");
 		exitEvent1.report();
 		
+		System.out.printf("Starting event_2 trace with id %s%n", Trace.getCurrentXTraceID());
 		TraceEvent entryEvent2 = Trace.createEntryEvent("event_2");
 		entryEvent2.report();		
 
 		TraceEvent exitEvent2 = Trace.createExitEvent("event_2");
 		exitEvent2.report();		
 		
+		System.out.printf("Starting event_3 trace with id %s%n", Trace.getCurrentXTraceID());
 		TraceEvent entryEvent3 = Trace.createEntryEvent("event_3");
 		entryEvent3.report();		
 		
