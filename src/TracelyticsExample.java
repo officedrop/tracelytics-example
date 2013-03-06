@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 import com.tracelytics.api.Trace;
@@ -6,6 +7,16 @@ import com.tracelytics.api.TraceEvent;
 
 public class TracelyticsExample {
 
+	static class SampleNonJsonableObject {
+		
+		SampleNonJsonableObject() {}
+		
+		private String name;
+		private int other;
+		private File file;
+		
+	}
+	
 	public static void main( String[] args ) {		
 		
 		Scanner s = new Scanner(System.in);
@@ -38,6 +49,7 @@ public class TracelyticsExample {
 		
 		System.out.printf("Starting event_1 trace with id %s%n", Trace.getCurrentXTraceID());
 		TraceEvent entryEvent1 = Trace.createEntryEvent("event_1");
+		entryEvent1.addInfo( "sample_data" , new SampleNonJsonableObject());
 		entryEvent1.report();
 
 		TraceEvent exitEvent1 = Trace.createExitEvent("event_1");
